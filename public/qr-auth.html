@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Authentication</title>
+</head>
+<body>
+  <script>
+    async function authenticateQRCode(qrCodeData) {
+      const webAppUrl = 'https://script.google.com/macros/s/AKfycbxrm96h4G-tsBidRYwzXMocVrHuitVpW0dytO4VoVPzI7-yo-I-ec27xaaQal3jYlYxbw/exec'; // Replace with your deployed web app URL
+
+      const response = await fetch(webAppUrl);
+      const data = await response.json();
+      const rows = data;
+
+      for (const row of rows) {
+        if (row.includes(qrCodeData)) {
+          const username = row[1]; // Adjust based on your data layout
+          document.body.innerHTML = `Welcome, ${username}! Enjoy the exhibition.`;
+          return;
+        }
+      }
+
+      document.body.innerHTML = 'QR code data not found.';
+    }
+
+    // Example QR code data
+    const qrCodeData = 'example-qr-code-data'; // Replace with actual QR code data
+    authenticateQRCode(qrCodeData);
+  </script>
+</body>
+</html>

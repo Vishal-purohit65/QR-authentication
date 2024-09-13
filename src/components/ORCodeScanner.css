@@ -1,0 +1,16 @@
+/* QRCodeScanner.css */
+.qr-scanner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .qr-reader {
+    width: 100%;
+    height: 400px; /* Set the height you need */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
